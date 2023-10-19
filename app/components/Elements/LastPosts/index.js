@@ -1,6 +1,8 @@
 /* eslint-disable no-undef */
 'use client';
 import Link from 'next/link';
+import { neutralDark, neutralMid, red } from '@/app/base/Colors';
+import { Overline, Text, Title } from '@/app/base/Typography';
 import { getAllPosts } from '@/app/graphql/queries';
 import { useQuery } from '@apollo/client';
 
@@ -8,7 +10,7 @@ export default function LastPosts() {
   const { data } = useQuery(getAllPosts, {
     variables: {
       page: 1,
-      pageSize: 4
+      pageSize: 3
     }
   });
 
@@ -16,26 +18,28 @@ export default function LastPosts() {
     <>
       {data?.blogPosts?.data.map((post, i) => (
         <Link
-          className="bg-white col-span-4 lg:col-span-3 drop-shadow"
+          className="col-span-4 flex flex-col space-y-6"
           key={i}
-          href={`/${post.attributes.slug}`}
+          href={`/noticias/${post.attributes.slug}`}
         >
           {post?.attributes?.image?.data?.attributes?.url && (
-            <div className="overflow-hidden h-36">
+            <div className="overflow-hidden rounded-xl">
               <img
                 alt={post.attributes.title}
                 src={`${post?.attributes?.image?.data?.attributes?.url}`}
               />
             </div>
           )}
-          <div className="p-10">
-            <h1
-              style={{ color: '#A92321' }}
-              className="font-sans font-bold mb-4"
-            >
+          <div className="flex flex-col space-y-2">
+            <Overline appearance="o2" color={red[1000]}>
               {post?.attributes?.category?.data?.attributes?.name}
-            </h1>
-            <p className="font-sans text-gray-600">{post?.attributes?.title}</p>
+            </Overline>
+            <Title appearance="h4" color={neutralDark[500]}>
+              {post?.attributes?.title}
+            </Title>
+            <Text appearance="p3" color={neutralMid[500]}>
+              {post?.attributes?.description}
+            </Text>
           </div>
         </Link>
       ))}

@@ -1,9 +1,27 @@
 'use client';
-import Image from 'next/image';
-import Link from 'next/link';
 import { useState } from 'react';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import styles from './styles.module.css';
+import { Pagination } from 'swiper/modules';
+import { Container } from '../../Foundation';
+import {
+  Distribuidores,
+  Fiscais,
+  Prestadores,
+  Recorrentes,
+  Varejos
+} from './Desktop';
+import {
+  DistribuidoresMobile,
+  FiscaisMobile,
+  PrestadoresMobile,
+  RecorrentesMobile,
+  VarejosMobile
+} from './Mobile';
+import { neutralLight, neutralMid, red } from '@/app/base/Colors';
+import { Title } from '@/app/base/Typography';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 export default function Tabs() {
   const [toggle, setToggle] = useState(1);
@@ -14,268 +32,137 @@ export default function Tabs() {
 
   return (
     <>
-      <div className="col-span-4 lg:col-span-5">
-        <ul>
-          <li
-            className={`border-l-4 ${
-              toggle === 1 ? 'border-red-600' : 'border-soft-gray'
-            } px-4 py-6 cursor-pointer`}
-            onClick={() => toggleTab(1)}
-          >
-            <button
-              className={`${
-                toggle === 1 ? 'text-dark-blue' : 'text-soft-gray'
-              } font-sans font-bold text-lg text-left`}
-              type="button"
+      <div className="hidden lg:block">
+        <Container>
+          <ul className="col-span-12 flex flex-grow space-x-1">
+            <li
+              className="cursor-pointer flex flex-1 justify-center p-3"
+              onClick={() => toggleTab(1)}
+              style={{
+                backgroundColor: toggle === 1 ? red[1100] : neutralLight[200]
+              }}
             >
-              Sistema Web para Gestão Comercial
-            </button>
-          </li>
-          <li
-            className={`border-l-4 ${
-              toggle === 2 ? 'border-red-600' : 'border-soft-gray'
-            } px-4 py-6 cursor-pointer`}
-            onClick={() => toggleTab(2)}
-          >
-            <button
-              className={`${
-                toggle === 2 ? 'text-dark-blue' : 'text-soft-gray'
-              } font-sans font-bold text-lg text-left`}
-              type="button"
+              <button type="button">
+                <Title
+                  appearance="h7"
+                  color={toggle === 1 ? neutralLight[100] : neutralMid[400]}
+                >
+                  Distribuidores
+                </Title>
+              </button>
+            </li>
+            <li
+              className="cursor-pointer flex flex-1 justify-center p-3"
+              onClick={() => toggleTab(2)}
+              style={{
+                backgroundColor: toggle === 2 ? red[1100] : neutralLight[200]
+              }}
             >
-              Sistema Web para Emissão de Nota Eletrônica
-            </button>
-          </li>
-          <li
-            className={`border-l-4 ${
-              toggle === 3 ? 'border-red-600' : 'border-soft-gray'
-            } px-4 py-6 cursor-pointer`}
-            onClick={() => toggleTab(3)}
-          >
-            <button
-              className={`${
-                toggle === 3 ? 'text-dark-blue' : 'text-soft-gray'
-              } font-sans font-bold text-lg text-left`}
-              type="button"
+              <button type="button">
+                <Title
+                  appearance="h7"
+                  color={toggle === 2 ? neutralLight[100] : neutralMid[400]}
+                >
+                  Pequenos varejos
+                </Title>
+              </button>
+            </li>
+            <li
+              className="cursor-pointer flex flex-1 justify-center p-3"
+              onClick={() => toggleTab(3)}
+              style={{
+                backgroundColor: toggle === 3 ? red[1100] : neutralLight[200]
+              }}
             >
-              Sistema para Pequenos Varejos
-            </button>
-          </li>
-          <li
-            className={`border-l-4 ${
-              toggle === 4 ? 'border-red-600' : 'border-soft-gray'
-            } px-4 py-6 cursor-pointer`}
-            onClick={() => toggleTab(4)}
-          >
-            <button
-              className={`${
-                toggle === 4 ? 'text-dark-blue' : 'text-soft-gray'
-              } font-sans font-bold text-lg text-left`}
-              type="button"
+              <button type="button">
+                <Title
+                  appearance="h7"
+                  color={toggle === 3 ? neutralLight[100] : neutralMid[400]}
+                >
+                  Prestadores de serviços
+                </Title>
+              </button>
+            </li>
+            <li
+              className="cursor-pointer flex flex-1 justify-center p-3"
+              onClick={() => toggleTab(4)}
+              style={{
+                backgroundColor: toggle === 4 ? red[1100] : neutralLight[200]
+              }}
             >
-              Certificado Digital
-            </button>
-          </li>
-          <li
-            className={`border-l-4 ${
-              toggle === 5 ? 'border-red-600' : 'border-soft-gray'
-            } px-4 py-6 cursor-pointer`}
-            onClick={() => toggleTab(5)}
-          >
-            <button
-              className={`${
-                toggle === 5 ? 'text-dark-blue' : 'text-soft-gray'
-              } font-sans font-bold text-lg text-left`}
-              type="button"
+              <button type="button">
+                <Title
+                  appearance="h7"
+                  color={toggle === 4 ? neutralLight[100] : neutralMid[400]}
+                >
+                  Recorrentes
+                </Title>
+              </button>
+            </li>
+            <li
+              className="cursor-pointer flex flex-1 justify-center p-3"
+              onClick={() => toggleTab(5)}
+              style={{
+                backgroundColor: toggle === 5 ? red[1100] : neutralLight[200]
+              }}
             >
-              Sistemas Web para Distribuidores
-            </button>
-          </li>
-          <li
-            className={`border-l-4 ${
-              toggle === 6 ? 'border-red-600' : 'border-soft-gray'
-            } px-4 py-6 cursor-pointer`}
-            onClick={() => toggleTab(6)}
-          >
-            <button
-              className={`${
-                toggle === 6 ? 'text-dark-blue' : 'text-soft-gray'
-              } font-sans font-bold text-lg text-left`}
-              type="button"
-            >
-              Sistemas Web para Gestão de Recorrência
-            </button>
-          </li>
-        </ul>
+              <button type="button">
+                <Title
+                  appearance="h7"
+                  color={toggle === 5 ? neutralLight[100] : neutralMid[400]}
+                >
+                  Documentos fiscais
+                </Title>
+              </button>
+            </li>
+          </ul>
+        </Container>
+        <Container bgContainer={neutralLight[300]} newClasses="mb-16">
+          {toggle === 1 && <Distribuidores />}
+          {toggle === 2 && <Varejos />}
+          {toggle === 3 && <Prestadores />}
+          {toggle === 4 && <Recorrentes />}
+          {toggle === 5 && <Fiscais />}
+        </Container>
       </div>
-      <div className="col-span-4 lg:col-span-7 flex-grow">
-        <div
-          className={`${
-            toggle === 1 ? 'block' : 'hidden'
-          } flex flex-col items-center`}
-        >
-          <p className="font-sans font-semibold px-24 text-soft-gray text-center">
-            De empresas que precisam de um sistema de gestão completo, empresas
-            com pagamentos recorrentes, até empresas de pequeno porte que
-            trabalham com equipes enxutas.
-          </p>
-          <Image
-            alt="Sempre mensalidade"
-            className="mt-6"
-            height={441}
-            quality={100}
-            src="/icon-service-01.svg"
-            width={435}
-          />
-          <Link
-            className="flex space-x-3 items-center"
-            href="/sistemas-web-para-gestao-empresarial"
+      <div className="lg:hidden">
+        <div className={`${styles.swiperContainer}`}>
+          <Swiper
+            modules={[Pagination]}
+            pagination={true}
+            style={{ paddingBottom: '3rem' }}
           >
-            <span className="font-sans font-bold text-sm text-red-600">
-              Veja mais sobre essa solução
-            </span>
-            <FontAwesomeIcon className="h-3 text-red-600" icon={faArrowRight} />
-          </Link>
-        </div>
-        <div
-          className={`${
-            toggle === 2 ? 'block' : 'hidden'
-          } flex flex-col items-center`}
-        >
-          <p className="font-sans font-semibold px-24 text-soft-gray text-center">
-            Esta solução é indicada para clientes que desejam focar seu tempo
-            encontrando estratégias comerciais, sem deixar de cumprir a
-            obrigatoriedade da emissão de nota fiscal
-          </p>
-          <Image
-            alt="Sempre mensalidade"
-            className="mt-6"
-            height={441}
-            quality={100}
-            src="/icon-service-02.svg"
-            width={435}
-          />
-          <Link
-            className="flex space-x-3 items-center"
-            href="/sistemas-web-para-emissao-de-nota-eletronica"
-          >
-            <span className="font-sans font-bold text-sm text-red-600">
-              Veja mais sobre essa solução
-            </span>
-            <FontAwesomeIcon className="h-3 text-red-600" icon={faArrowRight} />
-          </Link>
-        </div>
-        <div
-          className={`${
-            toggle === 3 ? 'block' : 'hidden'
-          } flex flex-col items-center`}
-        >
-          <p className="font-sans font-semibold px-24 text-soft-gray text-center">
-            Essa solução é ideal para negócios que atendam majoritariamente
-            pessoa física e que não necessitem de um sistema específico.
-          </p>
-          <Image
-            alt="Sempre mensalidade"
-            className="mt-6"
-            height={441}
-            quality={100}
-            src="/icon-service-04.svg"
-            width={435}
-          />
-          <Link
-            className="flex space-x-3 items-center"
-            href="/automacao-comercial"
-          >
-            <span className="font-sans font-bold text-sm text-red-600">
-              Veja mais sobre essa solução
-            </span>
-            <FontAwesomeIcon className="h-3 text-red-600" icon={faArrowRight} />
-          </Link>
-        </div>
-        <div
-          className={`${
-            toggle === 4 ? 'block' : 'hidden'
-          } flex flex-col items-center`}
-        >
-          <p className="font-sans font-semibold px-24 text-soft-gray text-center">
-            Contadores e empreendedores que cuidem de empresas de qualquer
-            porte, valorizam seu tempo e queiram emitir o certificado digital
-            ICP-BRasil.
-          </p>
-          <Image
-            alt="Sempre mensalidade"
-            className="mt-6"
-            height={441}
-            quality={100}
-            src="/icon-service-05.svg"
-            width={435}
-          />
-          <Link
-            className="flex space-x-3 items-center"
-            href="https://semprecertificadodigital.com.br/"
-            target="_blank"
-          >
-            <span className="font-sans font-bold text-sm text-red-600">
-              Veja mais sobre essa solução
-            </span>
-            <FontAwesomeIcon className="h-3 text-red-600" icon={faArrowRight} />
-          </Link>
-        </div>
-        <div
-          className={`${
-            toggle === 5 ? 'block' : 'hidden'
-          } flex flex-col items-center`}
-        >
-          <p className="font-sans font-semibold px-24 text-soft-gray text-center">
-            Automatize tarefas e agilize processos internos da sua empresa com
-            uma solução prática e fácil de usar. Simplificamos o controle da
-            logística de transporte da sua distribuição.
-          </p>
-          <Image
-            alt="Sempre mensalidade"
-            className="mt-6"
-            height={441}
-            quality={100}
-            src="/icon-service-07.svg"
-            width={435}
-          />
-          <Link
-            className="flex space-x-3 items-center"
-            href="/sempre-distribuidor"
-          >
-            <span className="font-sans font-bold text-sm text-red-600">
-              Veja mais sobre essa solução
-            </span>
-            <FontAwesomeIcon className="h-3 text-red-600" icon={faArrowRight} />
-          </Link>
-        </div>
-        <div
-          className={`${
-            toggle === 6 ? 'block' : 'hidden'
-          } flex flex-col items-center`}
-        >
-          <p className="font-sans font-semibold px-24 text-soft-gray text-center">
-            O Sempre Mensalidade é um sistema de gestão e controle de
-            recorrência. Essa solução é ideal para empresas que cobram
-            mensalidade dos seus clientes.
-          </p>
-          <Image
-            alt="Sempre mensalidade"
-            className="mt-6"
-            height={441}
-            quality={100}
-            src="/ilustra-sempre-mensalidade.svg"
-            width={435}
-          />
-          <Link
-            className="flex space-x-3 items-center"
-            href="/sempre-mensalidade"
-          >
-            <span className="font-sans font-bold text-sm text-red-600">
-              Veja mais sobre essa solução
-            </span>
-            <FontAwesomeIcon className="h-3 text-red-600" icon={faArrowRight} />
-          </Link>
+            <SwiperSlide
+              className="pt-8 px-8 rounded-3xl w-full"
+              style={{ backgroundColor: neutralLight[300] }}
+            >
+              <DistribuidoresMobile />
+            </SwiperSlide>
+            <SwiperSlide
+              className="pt-8 px-8 rounded-3xl w-full"
+              style={{ backgroundColor: neutralLight[300] }}
+            >
+              <VarejosMobile />
+            </SwiperSlide>
+            <SwiperSlide
+              className="pt-8 px-8 rounded-3xl w-full"
+              style={{ backgroundColor: neutralLight[300] }}
+            >
+              <PrestadoresMobile />
+            </SwiperSlide>
+            <SwiperSlide
+              className="pt-8 px-8 rounded-3xl w-full"
+              style={{ backgroundColor: neutralLight[300] }}
+            >
+              <RecorrentesMobile />
+            </SwiperSlide>
+            <SwiperSlide
+              className="pt-8 px-8 rounded-3xl w-full"
+              style={{ backgroundColor: neutralLight[300] }}
+            >
+              <FiscaisMobile />
+            </SwiperSlide>
+          </Swiper>
         </div>
       </div>
     </>

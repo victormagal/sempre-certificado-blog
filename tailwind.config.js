@@ -21,11 +21,12 @@ module.exports = {
         'custom-purple': '#6E3784',
         'dark-yellow': '#C48E39',
         'overlay-black': '#00000080',
-        'overlay-gray': '#1F3D8C08'
+        'overlay-gray': '#1F3D8C08',
+        'neutral-mid-400': '#6B778C'
       },
       fontFamily: {
-        sans: ['Open Sans', ...defaultTheme.fontFamily.sans],
-        serif: ['"Exo 2"', ...defaultTheme.fontFamily.serif]
+        sans: ['Public Sans', ...defaultTheme.fontFamily.sans],
+        serif: ['Public Sans', ...defaultTheme.fontFamily.serif]
       },
       spacing: {
         108: '27rem'
