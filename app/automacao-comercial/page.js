@@ -20,7 +20,7 @@ export default function AutomacaoComercial() {
       <HeroPage
         arrow={false}
         cta={true}
-        description="Para ajudar a organizar sua empresa"
+        description="Para ajudar a organizar sua empresa."
         iconSource="/icon-automacao-comercial.svg"
         title="Soluções práticas"
         uri="/bg-automacao-comercial.png"

@@ -34,6 +34,7 @@ export default function Analytics() {
           })(window, document, "clarity", "script", "58acgh3ffd");`
         }}
       />
+      <Script src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/0fd1df83-5a56-43bf-997a-bb5f444a714e-loader.js" />
     </>
   );
 }

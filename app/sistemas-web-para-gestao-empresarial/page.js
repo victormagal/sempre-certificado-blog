@@ -22,7 +22,7 @@ export default function GestaoEmpresarial() {
       <HeroPage
         arrow={false}
         cta={true}
-        description="Para você e seu negócio."
+        description="Para você e seu negócio"
         iconSource="/icon-gestao-empresarial.svg"
         title="Um Sistema de Gestão"
         uri="/bg-gestao-empresarial.png"
