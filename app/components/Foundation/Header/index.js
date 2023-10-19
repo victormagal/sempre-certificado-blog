@@ -59,13 +59,6 @@ export default function Header() {
         <nav className="col-end-13 col-span-10">
           <ul className="flex items-center justify-end space-x-3 xl:space-x-12">
             <li>
-              <Link href="/">
-                <Text appearance="p4" color={neutralMid[600]}>
-                  Home
-                </Text>
-              </Link>
-            </li>
-            <li>
               <Link href="/sobre">
                 <Text appearance="p4" color={neutralMid[600]}>
                   Quem somos
