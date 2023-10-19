@@ -40,7 +40,7 @@ const getAllCategories = gql`
 
 const getAllPosts = gql`
   query ($page: Int!, $pageSize: Int!) {
-    blogPosts(
+    certificadoPosts(
       pagination: { page: $page, pageSize: $pageSize }
       sort: "publishedAt:desc"
     ) {
@@ -50,13 +50,6 @@ const getAllPosts = gql`
             data {
               attributes {
                 url
-              }
-            }
-          }
-          category {
-            data {
-              attributes {
-                name
               }
             }
           }
@@ -150,7 +143,7 @@ const getFaqsBySegment = gql`
 
 const getPost = gql`
   query ($slug: String!) {
-    blogPosts(filters: { slug: { eq: $slug } }) {
+    certificadoPosts(filters: { slug: { eq: $slug } }) {
       data {
         attributes {
           title
