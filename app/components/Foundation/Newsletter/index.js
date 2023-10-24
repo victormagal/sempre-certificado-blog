@@ -58,10 +58,17 @@ export default function Newsletter() {
     >
       {({ errors, values }) => (
         <Container bgColor={neutralLight[200]} newClasses="py-8">
-          <div className="col-span-4 lg:col-span-12 flex justify-center">
+          <div className="col-span-4 lg:col-span-8 lg:col-start-3 flex flex-col items-center mb-4 space-y-6">
             <Title appearance="h2" color={neutralDark[500]} extra>
-              Fique por dentro
+              Receba novidades e conteúdos!
             </Title>
+            <Text
+              appearance="p1"
+              className="text-center"
+              color={neutralMid[500]}
+            >
+              Assine e fique por dentro de tudo.
+            </Text>
           </div>
           <Form className="col-span-4 lg:col-span-12 flex flex-col space-y-4">
             <ul className="flex flex-grow flex-col lg:flex-row lg:space-x-4 space-y-4 lg:space-y-0">

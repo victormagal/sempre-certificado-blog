@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Container from '../Container';
-import { neutralDark, neutralLight, neutralMid } from '@/app/base/Colors';
+import { neutralDark, neutralLight, neutralMid, red } from '@/app/base/Colors';
 import SocialIcon from '@/app/base/SocialIcon';
 import { Text, Title } from '@/app/base/Typography';
 
@@ -21,7 +21,7 @@ export default function Footer() {
             >
               <SocialIcon
                 icon="faSquareFacebook"
-                iconColor={neutralLight[600]}
+                iconColor={red[900]}
                 newClasses="h-6"
               />
             </Link>
@@ -33,7 +33,7 @@ export default function Footer() {
             >
               <SocialIcon
                 icon="faLinkedinIn"
-                iconColor={neutralLight[600]}
+                iconColor={red[900]}
                 newClasses="h-6"
               />
             </Link>
@@ -45,7 +45,7 @@ export default function Footer() {
             >
               <SocialIcon
                 icon="faInstagram"
-                iconColor={neutralLight[600]}
+                iconColor={red[900]}
                 newClasses="h-6"
               />
             </Link>
