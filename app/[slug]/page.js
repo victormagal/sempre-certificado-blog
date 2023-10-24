@@ -72,12 +72,17 @@ export default function Post() {
         newClasses="my-16 py-16 rounded-2xl"
       >
         <div className="col-span-4 lg:col-span-6 lg:col-start-4 flex flex-col items-center space-y-12">
-          <Title appearance="h2" color={neutralLight[100]} extra>
-            Seja Sempre!
+          <Title
+            appearance="h2"
+            className="text-center"
+            color={neutralLight[100]}
+            extra
+          >
+            Seja um parceiro da nossa rede de Certificado Digital
           </Title>
           <Text appearance="p1" className="text-center" color={neutralMid[100]}>
-            Venha conversar conosco. Temos a solução perfeita em sistemas web
-            para alavancar a gestão do seu negócio.
+            Temos uma proposta de parceria com as melhores vantagens do mercado
+            para você e seus clientes.
           </Text>
           <button
             className="flex items-center p-4 rounded-md space-x-3"
@@ -85,7 +90,7 @@ export default function Post() {
             style={{ backgroundColor: red[1000] }}
           >
             <Text appearance="p4" color={neutralLight[100]}>
-              Converse com um especialista
+              Quero ser um parceiro
             </Text>
             <SolidIcon
               icon="faChevronRight"
