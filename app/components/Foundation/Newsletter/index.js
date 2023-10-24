@@ -58,6 +58,11 @@ export default function Newsletter() {
     >
       {({ errors, values }) => (
         <Container bgColor={neutralLight[200]} newClasses="py-8">
+          <div className="col-span-4 lg:col-span-12 flex justify-center">
+            <Title appearance="h2" color={neutralDark[500]} extra>
+              Fique por dentro
+            </Title>
+          </div>
           <Form className="col-span-4 lg:col-span-12 flex flex-col space-y-4">
             <ul className="flex flex-grow flex-col lg:flex-row lg:space-x-4 space-y-4 lg:space-y-0">
               <li className="flex flex-1 flex-col space-y-2">
