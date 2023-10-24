@@ -7,6 +7,7 @@ import HeaderMobile from './HeaderMobile';
 import HeroPage from './HeroPage';
 import Locations from './Locations';
 import ModalForm from './ModalForm';
+import Newsletter from './Newsletter';
 import Slideshow from './Slideshow';
 import Testimonies from './Testimonies';
 
@@ -20,6 +21,7 @@ export {
   HeroPage,
   Locations,
   ModalForm,
+  Newsletter,
   Slideshow,
   Testimonies
 };

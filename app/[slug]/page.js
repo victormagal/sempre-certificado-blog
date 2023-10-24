@@ -69,7 +69,7 @@ export default function Post() {
       </Container>
       <Container
         bgContainer={neutralDark[500]}
-        newClasses="mt-16 py-16 rounded-2xl"
+        newClasses="my-16 py-16 rounded-2xl"
       >
         <div className="col-span-4 lg:col-span-6 lg:col-start-4 flex flex-col items-center space-y-12">
           <Title appearance="h2" color={neutralLight[100]} extra>

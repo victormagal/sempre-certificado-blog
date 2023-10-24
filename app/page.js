@@ -84,7 +84,7 @@ export default function Home() {
       <Container newClasses="py-16">
         <div className="col-span-4 lg:col-span-8 lg:col-start-3 flex flex-col items-center space-y-6">
           <Overline appearance="o1" className="text-center" color={red[700]}>
-            Ceriticado Digital
+            Certificado Digital
           </Overline>
           <Title
             appearance="h2"
@@ -130,7 +130,7 @@ export default function Home() {
           </Link>
         ))}
       </Container>
-      <Container newClasses="pt-8">
+      <Container newClasses="py-8">
         {data?.certificadoPosts?.meta?.pagination?.pageCount > 1 && (
           <div className="col-span-4 lg:col-span-12">
             <ul className="flex items-center justify-center space-x-2">
