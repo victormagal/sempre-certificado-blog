@@ -9,7 +9,7 @@ import { Container } from './components/Foundation';
 import { getAllPosts } from './graphql/queries';
 import { useLazyQuery } from '@apollo/client';
 
-export default function Blog() {
+export default function Home() {
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 6;
   const listPages = [];
@@ -92,16 +92,16 @@ export default function Blog() {
             color={neutralDark[500]}
             extra
           >
-            Quer dicas, conteúdos e tirar dúvidas?
+            Blog Certificado Sempre
           </Title>
           <Text appearance="p1" className="text-center" color={neutralMid[500]}>
-            Aqui você encontrará artigos, dicas, conteúdos e tirar dúvidas sobre
-            certificado digital. Descubra tudo o que a Sempre Tecnologia pode
-            oferecer para você e sua empresa!
+            Seu espaço para ficar por dentro das tendências e melhores práticas
+            relacionadas ao Certificado Digital. Junte-se a nós e explore o
+            futuro da segurança digital!
           </Text>
         </div>
       </Container>
-      <Container newClasses="border-b py-12">
+      <Container>
         {data?.certificadoPosts?.data?.map((post, i) => (
           <Link
             className="col-span-4 flex flex-col space-y-6"

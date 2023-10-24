@@ -5,7 +5,6 @@ import {
   Footer,
   Header,
   HeaderMobile,
-  Locations,
   ModalForm
 } from './components/Foundation';
 import { client } from './graphql/config';
@@ -55,7 +54,6 @@ export default function RootLayout({ children }) {
               <Header />
               <HeaderMobile />
               {children}
-              <Locations />
               <Footer />
             </main>
           </StyledComponentsRegistry>
