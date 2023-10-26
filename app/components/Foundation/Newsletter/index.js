@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Container from '../Container';
 import { neutralDark, neutralLight, neutralMid, red } from '@/app/base/Colors';
 import { Text, Title } from '@/app/base/Typography';
-import axios from 'axios';
 import { Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 
@@ -18,38 +17,28 @@ export default function Newsletter() {
         mail: '',
         name: ''
       }}
-      onSubmit={(values) => {
+      onSubmit={async (values) => {
         setLoading(true);
-        const config = {
-          headers: {
-            'mz-integration': 'sempre',
-            'Content-Type': 'application/json'
-          }
-        };
 
-        const body = JSON.stringify({
-          nome: values.name,
-          email: values.mail
+        const response = await fetch('../../../api/newsletter', {
+          method: 'POST',
+          body: JSON.stringify({
+            mail: values.mail,
+            name: values.name
+          })
         });
 
-        axios
-          .post(
-            'https://bot.sempretecnologia.com.br/index.php/comercial/scd/news-blog',
-            body,
-            config
-          )
-          .then(({ status }) => {
-            setLoading(false);
-            if (status === 200) {
-              setMessageMail(
-                'Email cadastrado em nossa newsletter com sucesso. Aguarde e você receberá nossas novidades.'
-              );
-            } else {
-              setMessageMail(
-                'Não foi possível efetuar o cadastro no momento. Tente novamente mais tarde.'
-              );
-            }
-          });
+        setLoading(false);
+
+        if (response.ok) {
+          setMessageMail(
+            'Email cadastrado em nossa newsletter com sucesso. Aguarde e você receberá nossas novidades.'
+          );
+        } else {
+          setMessageMail(
+            'Não foi possível efetuar o cadastro no momento. Tente novamente mais tarde.'
+          );
+        }
       }}
       validationSchema={Yup.object({
         mail: Yup.string().email('E-mail inválido').required('Obrigatório'),
