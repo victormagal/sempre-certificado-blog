@@ -4,6 +4,11 @@ import Script from 'next/script';
 export default function Analytics() {
   return (
     <>
+      <Script src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/0fd1df83-5a56-43bf-997a-bb5f444a714e-loader.js" />
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-Q4GZLHCBF2"
+      />
       <noscript>
         <iframe
           src="https://www.googletagmanager.com/ns.html?id=GTM-N8Z66M2"
@@ -24,6 +29,16 @@ export default function Analytics() {
         }}
       />
       <Script
+        id="ga4-script"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-Q4GZLHCBF2');`
+        }}
+      />
+      <Script
         id="clarity-script"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
@@ -34,7 +49,6 @@ export default function Analytics() {
           })(window, document, "clarity", "script", "jgrtc3s2bw");`
         }}
       />
-      <Script src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/0fd1df83-5a56-43bf-997a-bb5f444a714e-loader.js" />
     </>
   );
 }
